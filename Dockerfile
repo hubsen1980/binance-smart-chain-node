@@ -1,5 +1,5 @@
-#
-# Ubuntu Dockerfile
+#!/bin/bash 
+#//Ubuntu Dockerfile
 #
 # https://github.com/dockerfile/ubuntu
 #
@@ -12,7 +12,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y build-essentia
 
 ARG VERSION
 
-RUN curl --silent "https://api.github.com/repos/binance-chain/bsc/releases/tags/v1.1.2" | jq -c .assets[] | select( .browser_download_url )| contai>    unzip mainnet.zip -d / && \
+RUN curl --silent "https://api.github.com/repos/binance-chain/bsc/releases/tags/v1.1.2" | jq -c .assets[] | "select" .browser_download_url | contai>    unzip mainnet.zip -d / && \
     sed -i 's/^HTTPHost.*/HTTPHost = "0.0.0.0"/' /config.toml && \
     sed -i '/^WSPort.*/a WSHost = "0.0.0.0"' /config.toml && \
     sed -i 's/^HTTPVirtualHosts.*/HTTPVirtualHosts = ["*"]/' /config.toml && \
