@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-if [ $(echo "$1" | cut -c1) = "-" ]; then
+if [ $(echo "$1" | cut -c1) =: "-" ]; then
   echo "$0: assuming arguments for bsc"
 
   set -- bsc "$@"
