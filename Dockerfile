@@ -1,8 +1,10 @@
-FROM ubuntu-latest
+FROM scratch
+ADD ubuntu-focal-oci-amd64-root.tar.gz /
+CMD ["bash"]
 
 
-RUN apt-get update -y \
-  && apt-get install -y curl jq unzip \
+RUN apt-get update -y && apt-get upgrade \
+  && apt-get install -y build-essential curl jq unzip \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
