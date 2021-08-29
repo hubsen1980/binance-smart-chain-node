@@ -1,7 +1,12 @@
-FROM scratch
-ADD ubuntu-focal-oci-amd64-root.tar.gz /
-CMD ["bash"]
+#
+# Ubuntu Dockerfile
+#
+# https://github.com/dockerfile/ubuntu
+#
 
+# Pull base image.
+FROM ubuntu:20.04
+CMD ["bash"]
 
 RUN apt-get update -y && apt-get upgrade \
   && apt-get install -y build-essential curl jq unzip xargs bash \
