@@ -13,9 +13,8 @@ RUN curl --silent "https://api.github.com/repos/binance-chain/bsc/releases/tags/
     sed -i 's/^HTTPHost.*/HTTPHost = "0.0.0.0"/' /config.toml && \
     sed -i '/^WSPort.*/a WSHost = "0.0.0.0"' /config.toml && \
     sed -i 's/^HTTPVirtualHosts.*/HTTPVirtualHosts = ["*"]/' /config.toml && \
-    sed -i '/Node\.LogConfig/,/^$/d' /config.toml && \ 
-    mv geth_linux /usr/local/bin/bsc && \
-    chmod +x /usr/local/bin/bsc
+    sed -i '/Node\.LogConfig/,/^$/d' /config.toml && mv geth_linux /usr/bin/bsc && \
+    chmod +x /usr/bin/bsc
 
 ENV BSC_DATADIR=/root/.ethereum
 
